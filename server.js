@@ -13,6 +13,10 @@ hbs.registerHelper('screamIt',(str)=>{
     return str.toUpperCase();
 });
 
+hbs.registerHelper('ti',(str)=>{
+    return str;
+});
+
 
 app.set('view engine','hbs');
 
@@ -46,10 +50,10 @@ app.use((req, res, next)=>{
 */
 
 
-app.use((req, res, next)=>{
+/*app.use((req, res, next)=>{
     console.log('inside 2nd app.use....');
     res.render('maintenance.hbs');
-});
+});*/
 
 
 
@@ -82,6 +86,10 @@ app.get('/about', (req,res)=>{
         });*/
         res.render('about.hbs',{pageTitle:'about page', pageTitle:'About'});
     
+});
+
+app.get('/projects', (req, res)=>{
+   res.render('projects.hbs',{pageTitle:'Projects'}); 
 });
 
 app.get('/bad', (req, res)=>{
